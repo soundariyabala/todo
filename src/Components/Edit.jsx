@@ -2,25 +2,31 @@ import React,{useState,useEffect} from 'react'
 import { useNavigate,useParams } from 'react-router-dom';
 
 
-function EditUser({todos,setTodos}) {
+const EditUser=({todos,setTodos})=> {
 
-  let params = useParams()//this will return a object
+  let params = useParams()
+  // this will return a object
 
-  let navigate = useNavigate()// this will return a function
+  let navigate = useNavigate()
+  // this will return a function
+
+
+  let [name, setName] = useState("");
+  let [description, setDescription] = useState("");
+  let [status, setStatus] = useState(todos[index].status);
+
 
   const findIndex = (id)=>{
     for(let i = 0; i<todos.length;i++)
     {
       if(id === todos[i].id)
-        return i
+        {return i}
     }
   }
 
-  let [name, setName] = useState("");
-  let [description, setDescription] = useState("")
-  let [status, setStatus] = useState(todos[index].status)
-
+ 
   const handleEdit = ()=>{
+
     let id = Number(params.id)
     let index = findIndex(id)
     let newArray = [...todos]// deep copy Achieve Immutability
@@ -30,7 +36,7 @@ function EditUser({todos,setTodos}) {
       description,
       status})
     setTodos(newArray)
-    navigate('/display')
+    navigate('/display/all')
   }
 
   const getUserData = ()=>{
@@ -51,7 +57,7 @@ return (
            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-sm-1 g-1">
              <div className="col col-md-6 mt-3">
                <div className="">
-                 <input placeholder="Name" value={name} onChange={(e)=>{setName(e.target.value)}} type="text" />
+                 <input placeholder=" Todo Name" value={name} onChange={(e)=>{setName(e.target.value)}} type="text" />
                </div>
              </div>
              <div className="col col-lg-6 mt-3">
@@ -61,9 +67,7 @@ return (
              </div>
              <div className="col col-lg-12 col-md-12 col-sm-12 mt-3">
                <div className="">
-                 <button type="button" onClick={()=> handleEdit()} className="btn btn-info mt-3">
-                   Save Todo
-                 </button> &nbsp;
+                 <button type="button" onClick={()=> handleEdit()} className="btn btn-info mt-3">Save Todo</button>
                  
                </div>
              </div>

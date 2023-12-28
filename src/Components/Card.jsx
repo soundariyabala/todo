@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const Cards = ({data, todos, setTodos}) => {
     let dummy = todos.status;
     let [state, setState] =useState(todos.status)
-    let [color, setColor] = useState('')
+    let [color, setColor] = useState("")
     let [option, setOption] = useState("")
 
 
@@ -13,7 +13,7 @@ const Cards = ({data, todos, setTodos}) => {
     //to set values at dropdown
     useEffect(()=>{
         state ? `${ setOption("Completed"),  setColor("bg-success")}` : `${ setOption("Not Completed"),  setColor("bg-danger")}`;
-    },[])
+              },[])
 
 
     //to delete the created todo using handle delete
@@ -26,18 +26,18 @@ const Cards = ({data, todos, setTodos}) => {
           break;
         }
       }
+    
       let newArray = [...data]; //deep copy or immutability
       newArray.splice(index, 1)
       setTodos(newArray)
     }
 
     let handleCompleted = (id, state) =>{
-          
           let index;
           for(let i = 0; i < data.length; i++){
             if(data[i].id === id){
-              index = i
-              break
+              index = i;
+              break;
             }
           }
           let newArray = [...data];
@@ -53,7 +53,7 @@ const Cards = ({data, todos, setTodos}) => {
 
                 <p className="card-text">Name : {todos.name}</p>
                 <p className="card-text">Description : {todos.description}</p>
-                <div className="card-text d-flex gap-2">
+                <div className="card-text d-flex gap-1">
                   Status :{" "}   
                   <span> {" "}           
                   <div className="dropdown">

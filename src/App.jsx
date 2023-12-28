@@ -34,7 +34,7 @@ const App=() =>{
    <Route path="/display" element={<Heading todos={todos} setTodos={setTodos}/>}>
        <Route path="all" element={<All todos={todos} setTodos={setTodos} />}></Route>
        <Route path="completed" element={<Completed todos={todos} setTodos={setTodos}/>}></Route>
-       <Route path="notcomplete" element={<NotCompleted todos={todos} setTodos={setTodos} />}></Route>
+       <Route path="notcompleted" element={<NotCompleted todos={todos} setTodos={setTodos} />}></Route>
     </Route>
   <Route path="/edit/:id" element={<Edit todos={todos} setTodos={setTodos} />}/>
   <Route path="/*" element={<Navigate to="/display/all" />}/>

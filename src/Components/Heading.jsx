@@ -1,10 +1,8 @@
-import React,{useState,useEffect}from 'react'
+import React,{useState}from 'react'
 import {Link, useNavigate,Outlet} from 'react-router-dom';
-import Card from './Card';
-
 
 const Heading=({todos,setTodos})=> {
-   let [name, setName] = useState("");
+    let [name, setName] = useState("");
     let [description, setDescription] = useState("");
     let [status, setStatus] = useState(false);
     let [color, setColor] = useState("");
@@ -24,13 +22,14 @@ const handleCreate = ()=>{
         setTodos(newArray)
         navigate('/display/all')
       }
+     
        
   return <> <h1 className="text-center HeaderColor">My Todo</h1>
   
    <div className="col col-md-5 ">
-  <div classNameName="row row-cols-1 row-cols-md-3 g-4">
+  <div className="row row-cols-1 row-cols-md-3 g-4">
 
-  <div className="col justify-content-start mt-5 text-align-center"  >
+  <div className="col justify-content-start mt-6 text-align-center"  >
     <div className=" text-center">
       <input type="text" placeholder="Todo Name" onChange={(e)=>{setName(e.target.value)}}></input>
     </div>
@@ -44,7 +43,7 @@ const handleCreate = ()=>{
   <br></br>
   <div className="col">
     <div className=" text-center">
-      <button type="submit "onClick={()=>{handleCreate()}} className="btn btn-success">Add Todo</button>
+      <button type="submit "onClick={()=>{handleCreate()}} className="btn btn-primary">Add Todo</button>
     </div>
   </div>
 
@@ -64,7 +63,7 @@ const handleCreate = ()=>{
                        <ul className="dropdown-menu">
                          <li><Link to={'all'}           className="dropdown-item" onClick={()=>{setOption("All");          setColor("bg-info");  }} >All</Link></li>
                          <li><Link to={'completed'}     className="dropdown-item" onClick={()=>{setOption("Completed");    setColor("bg-success");}} >Completed</Link></li>
-                         <li><Link to={'notcompleted'}  className="dropdown-item" onClick={()=>{setOption("Not Completed");setColor("bg-danger"); }} >Not Completed</Link></li>                         
+                         <li><Link to={'notcompleted'}  className="dropdown-item" onClick={()=>{setOption("NotCompleted"); setColor("bg-danger"); }} >Not Completed</Link></li>                         
                        </ul>
                   </div>
               </span>

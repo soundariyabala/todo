@@ -7,7 +7,9 @@ const Completed = ({todos, setTodos}) => {
     <>     
           {x.map((e, i) => {
             return <Card data={todos} todos={e} setTodos={setTodos} key={i}  />;
-        })}
+        }
+        )
+        }
        
     </>
   )
