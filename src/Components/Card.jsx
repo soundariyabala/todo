@@ -44,6 +44,7 @@ const Cards = ({data, todos, setTodos}) => {
           newArray[index].status = state;
         
     }
+    
 
   return (
     <>

@@ -13,7 +13,7 @@ const EditUser=({todos,setTodos})=> {
 
   let [name, setName] = useState("");
   let [description, setDescription] = useState("");
-  let [status, setStatus] = useState(todos[index].status);
+  let [status, setStatus] = useState("");
 
 
   const findIndex = (id)=>{
